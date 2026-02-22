@@ -1,13 +1,14 @@
 def main(nums, target):
-    result = None
-    for i in range(1, len(nums)):
-        if nums[i] == target:
-            result = i
-        if nums[i-1] < target < nums[i]:
-            result = i
-        
-
-    return result
+    left, right = 0, len(nums) - 1
+    while left <= right:
+        pivot = (left + right) // 2
+        if nums[pivot] == target:
+            return pivot
+        if target < nums[pivot]:
+            right = pivot - 1
+        else:
+            left = pivot + 1
+    return left
 
 
 if __name__ == "__main__":

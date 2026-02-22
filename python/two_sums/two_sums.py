@@ -1,6 +1,6 @@
 import random
 import time
-from typing import List, Any
+from typing import List
 
 
 def generate_random_numbers(generate_this_many):
@@ -10,17 +10,19 @@ def generate_random_numbers(generate_this_many):
         to_submit.append(random_integer)
     return to_submit
 
+
 def brute_force_2(nums, target):
     for index, i in enumerate(nums):
         difference = target - i
-        for j in range(index+1, len(nums)):
+        for j in range(index + 1, len(nums)):
             if nums[j] == difference:
                 print([index, j])
                 return
 
+
 def brute_force_1(nums, target):
     found = False
-    l,m=None, None
+    l, m = None, None
     for index, i in enumerate(nums):
         for j in range(index + 1, len(nums)):
             if nums[index] + nums[j] == target:
@@ -29,6 +31,7 @@ def brute_force_1(nums, target):
                 found = True
                 break
     print([l, m])
+
 
 def correct_solution(nums: List[int], target: int) -> list[int] | None:
     thing = {}
